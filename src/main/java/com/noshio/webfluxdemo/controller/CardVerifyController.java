@@ -25,7 +25,7 @@ public class CardVerifyController {
     private final CardDetailsConverter cardDetailsConverter;
 
     @GetMapping("card-scheme/verify/{cardnumber}")
-    public Mono<ValidateCardResponse> validate (@PathVariable("cardnumber") String cardNumber) {
+    public Mono<ValidateCardResponse> validate(@PathVariable("cardnumber") String cardNumber) {
         final Mono<CardApiResponse> cardApiResponse = cardService.validateCard(cardNumber);
         return cardDetailsConverter.convert(cardApiResponse);
     }

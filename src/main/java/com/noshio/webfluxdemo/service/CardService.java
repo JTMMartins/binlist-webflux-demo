@@ -18,9 +18,9 @@ public class CardService {
         WebClient webClient = WebClient.create(BINLIST_BASE_ENDPOINT);
 
         return webClient.get()
-                        .uri(cardNumber)
-                        .retrieve()
-                        .bodyToMono(CardApiResponse.class);
+                .uri(cardNumber)
+                .retrieve()
+                .bodyToMono(CardApiResponse.class);
 
     }
 

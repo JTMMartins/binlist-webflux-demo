@@ -14,14 +14,13 @@ public class CardDetailsConverter implements Converter<Mono<CardApiResponse>, Mo
     @Override
     public Mono<ValidateCardResponse> convert(final Mono<CardApiResponse> apiResponse) {
         return apiResponse.map(
-                response->
-                   ValidateCardResponse.builder()
-                .success(true)
-                .payload(ValidateCardResponse.Payload.builder()
-                .scheme(response.getScheme())
-                        .type(response.getType())
-                        .bank(Optional.ofNullable(response.getBank())
-                        .orElse(null).getName()).build()).build());
-
+                response ->
+                        ValidateCardResponse.builder()
+                                .success(true)
+                                .payload(ValidateCardResponse.Payload.builder()
+                                        .scheme(response.getScheme())
+                                        .type(response.getType())
+                                        .bank(Optional.ofNullable(response.getBank())
+                                                .orElse(null).getName()).build()).build());
     }
 }
